@@ -1,31 +1,31 @@
 
-//‚опрос# 1: ‚ыберите TOP 3rd EMPLOYEE
+//Р’РѕРїСЂРѕСЃ# 1: Р’С‹Р±РµСЂРёС‚Рµ TOP 3rd EMPLOYEE
 
 SELECT * FROM EMP_A WHERE EMPID=0003;
 
-//‚опрос# 2: Џолучить 2nd maximum salary
+//Р’РѕРїСЂРѕСЃ# 2: РџРѕР»СѓС‡РёС‚СЊ 2nd maximum salary
 
 SELECT SALARY FROM EMP_A WHERE SALARY<150.000 AND SALARY>110.00;
 
-//‚опрос# 3: ‚ывести "EMPLOYEE NAME", DOB, "DEPARTMENT NAME" of "QA" DEPARTMENT, Sorting by "EMPLOYEE NAME" ASC
+///Р’РѕРїСЂРѕСЃ# 3: Р’С‹РІРµСЃС‚Рё "EMPLOYEE NAME", DOB, "DEPARTMENT NAME" of "QA" DEPARTMENT, Sorting by "EMPLOYEE NAME" ASC
 
 SELECT EMPNAME, DOB, DEPTNAME FROM DEPT_B INNER JOIN EMP_A ON DEPT_B.DEPTID=EMP_A.DEPTID WHERE DEPT_B.DEPTID=EMP_A.DEPTID ORDER BY EMPNAME ASC;
 
-//‚опрос# 4: ‚ывести "EMPLOYEE NAME", "AGE", "DEPARTMENT NAME" Sort by "AGE" DESC
+//Р’РѕРїСЂРѕСЃ# 4: Р’С‹РІРµСЃС‚Рё "EMPLOYEE NAME", "AGE", "DEPARTMENT NAME" Sort by "AGE" DESC
 
 SELECT EMPNAME, TIMESTAMPDIFF(year, DOB, curdate()) AS AGE, DEPTNAME from DEPT_B INNER JOIN EMP_A ON DEPT_B.DEPTID=EMP_A.DEPTID WHERE DEPT_B.DEPTID=EMP_A.DEPTID order by AGE DESC;
 
-//‚опрос# 5: ‚ывести "DEPARTMENT NAME", Number of Employees Sort by Number of Employees
+///Р’РѕРїСЂРѕСЃ# 5: Р’С‹РІРµСЃС‚Рё "DEPARTMENT NAME", Number of Employees Sort by Number of Employees
 
 SELECT EMPID, DEPTNAME from DEPT_B INNER JOIN EMP_A ON DEPT_B.DEPTID=EMP_A.DEPTID WHERE DEPT_B.DEPTID=EMP_A.DEPTID order by EMPID;
 
-//‚опрос# 6: ‚ывести EMPLOYEE NAME, MANAGER NAME, DEPARTMENT NAME
-         (показать всех работников включает тех, у кого нет менеджера)
+//Р’РѕРїСЂРѕСЃ# 6: Р’С‹РІРµСЃС‚Рё EMPLOYEE NAME, MANAGER NAME, DEPARTMENT NAME
+         (РџРѕРєР°Р·Р°С‚СЊ РІСЃРµС… СЂР°Р±РѕС‚РЅРёРєРѕРІ РІРєР»СЋС‡Р°СЏ С‚РµС…, Сѓ РєРѕРіРѕ РЅРµС‚ РјРµРЅРµРґР¶РµСЂР°)
 
 SELECT EMPNAME, MGRID, DEPTNAME from DEPT_B INNER JOIN EMP_A ON DEPT_B.DEPTID=EMP_A.DEPTID WHERE DEPT_B.DEPTID=EMP_A.DEPTID;
 
-//‚опрос# 7: ‚ывести EMPLOYEE NAME, MANAGER NAME, DEPARTMENT NAME
-     (€з всех отделов где более одного работника)
+//Р’РѕРїСЂРѕСЃ# 7: Р’С‹РІРµСЃС‚Рё EMPLOYEE NAME, MANAGER NAME, DEPARTMENT NAME
+     (РР· РІСЃРµС… РѕС‚РґРµР»РѕРІ РіРґРµ Р±РѕР»РµРµ РѕРґРЅРѕРіРѕ СЂР°Р±РѕС‚РЅРёРєР°)
 
 SELECT EMPNAME, MGRID, DEPTNAME from DEPT_B INNER JOIN EMP_A ON DEPT_B.DEPTID=EMP_A.DEPTID WHERE DEPT_B.DEPTID=EMP_A.DEPTID AND MGRID LIMIT 1,2;
 
